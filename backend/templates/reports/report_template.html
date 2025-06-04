@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Report - {{ report_data.date }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 1rem;
+            background: #fff;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 0.6rem;
+            text-align: left;
+        }
+        .chart {
+            margin-top: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daily Report</h1>
+    <p><strong>Date:</strong> {{ report_data.date }}</p>
+
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Active Users</td>
+            <td>{{ report_data.active_users }}</td>
+        </tr>
+        <tr>
+            <td>New Users</td>
+            <td>{{ report_data.new_users }}</td>
+        </tr>
+        <tr>
+            <td>Total Users</td>
+            <td>{{ report_data.total_users }}</td>
+        </tr>
+        <tr>
+            <td>Sessions</td>
+            <td>{{ report_data.sessions }}</td>
+        </tr>
+        <tr>
+            <td>Page Views</td>
+            <td>{{ report_data.page_views }}</td>
+        </tr>
+    </table>
+
+    {% if chart_path %}
+    <div class="chart">
+        <h2>Traffic Overview</h2>
+        <img src="{{ chart_path }}" alt="Report Chart" style="max-width: 100%; height: auto; width: 500px;">
+    </div>
+    {% endif %}
+</body>
+</html>
