@@ -2,5 +2,6 @@ from django.urls import path
 from .views import SubscriptionDetailView
 
 urlpatterns = [
-    path('subscription/', SubscriptionDetailView.as_view(), name='subscription-detail'),
+    path('', SubscriptionDetailView.as_view(), name='subscription-list'),
+    path('<int:pk>/', SubscriptionDetailView.as_view(), name='subscription-detail'),
 ]

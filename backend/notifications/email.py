@@ -1,4 +1,4 @@
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from reports.report_builder import build_report
 import logging
@@ -18,16 +18,20 @@ def send_report_email(user, report_date, report_format):
             message = report['html_content']
         
         logger.info(f"Sending {report_format} report to {user.email}")
-        send_mail(
-            subject=subject,
-            message=message,
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[user.email],
-            html_message=message if report_format == 'html' else None,
-            fail_silently=False,
-        )
-        logger.info(f"Email sent successfully to {user.email}")
         
+        # Create email message
+        email = EmailMessage(
+            subject=subject,
+            body=message,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[user.email],
+        )
+        
+        # Set content type for HTML
+        if report_format.upper() in ['HTML', 'BOTH']:
+            email.content_subtype = 'html'
+        
+        # Attach PDF if needed
         if report_format.upper() in ['PDF', 'BOTH'] and os.path.exists(report['pdf_path']):
             with open(report['pdf_path'], 'rb') as pdf_file:
                 email.attach(
@@ -36,10 +40,9 @@ def send_report_email(user, report_date, report_format):
                     mimetype='application/pdf'
                 )
         
-        if report_format.upper() in ['HTML', 'BOTH']:
-            email.content_subtype = 'html'
-        
+        # Send the email
         email.send(fail_silently=False)
+        logger.info(f"Email sent successfully to {user.email}")
         
     except Exception as e:
         logger.error(f"Failed to send email to {user.email}: {str(e)}", exc_info=True)
