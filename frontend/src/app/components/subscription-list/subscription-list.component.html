@@ -1,0 +1,13 @@
+<div class="body">
+  <div *ngIf="subscriptions.length; else noSubs">
+    <ul class="subscription-item">
+      <li *ngFor="let sub of subscriptions">
+        {{ sub.start_date }} → {{ sub.end_date }} | {{ sub.format }}
+        <button (click)="unsubscribe(sub.id!)">Unsubscribe</button>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noSubs>
+    <p>No subscriptions yet.</p>
+  </ng-template>
+</div>

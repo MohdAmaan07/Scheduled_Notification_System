@@ -1,0 +1,128 @@
+/* Base styling */
+:host {
+  display: block;
+  padding: 1rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #f9faff;
+  min-height: 100vh;
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Headings */
+h2 {
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #1b334c;
+  padding-bottom: 0.25rem;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #1b334c;
+  color: white;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f1faff;
+}
+
+/* Buttons */
+button, a.button-link {
+  background-color: #1b334c;
+  color: white;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover, a.button-link:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Special toggle active button */
+.toggle-active {
+  background-color: #28a745;
+}
+
+.toggle-active:hover {
+  background-color: #1e7e34;
+}
+
+/* Form styling */
+form {
+  max-width: 500px;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 1rem;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin: 1rem 0 0.25rem 0;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 3px #007bff;
+}
+
+/* Error message */
+.error {
+  color: #cc0000;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Empty state */
+.no-data {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #666;
+  font-size: 1rem;
+}

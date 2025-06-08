@@ -1,0 +1,47 @@
+.main-nav {
+  background-color: #1b334c;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  li {
+    /* flex-grow: 1;  optional if you want equal spacing */
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      color: #cce5ff;
+      border-bottom-color: #cce5ff;
+    }
+
+    &.active {
+      border-bottom-color: #ffc107;
+      color: #ffc107;
+    }
+  }
+}
+
+/* Responsive: stack nav items on smaller screens */
+@media (max-width: 600px) {
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

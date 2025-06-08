@@ -1,0 +1,30 @@
+<h2>Report History</h2>
+<div class="body">
+  
+  <table *ngIf="history.length; else noHistory">
+    <thead>
+      <tr>
+        <th>Date Sent</th>
+        <th>Active Users</th>
+        <th>New Users</th>
+        <th>Total Users</th>
+        <th>Sessions</th>
+        <th>Page Views</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of history">
+        <td>{{ r.date }}</td>
+        <td>{{ r.active_users }}</td>
+        <td>{{ r.new_users }}</td>
+        <td>{{ r.total_users }}</td>
+        <td>{{ r.sessions }}</td>
+        <td>{{ r.page_views }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <ng-template #noHistory>
+    <p>No reports sent yet.</p>
+  </ng-template>
+</div>

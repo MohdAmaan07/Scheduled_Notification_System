@@ -1,0 +1,26 @@
+<div class="body">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+    <label>
+      Start Date:
+      <input type="date" formControlName="start_date" />
+    </label>
+  
+    <label>
+      End Date:
+      <input type="date" formControlName="end_date" />
+    </label>
+  
+    <label>
+      Format:
+      <select formControlName="report_format">
+        <option value="PDF">PDF</option>
+        <option value="HTML">HTML</option>
+        <option value="BOTH">Both</option>
+      </select>
+    </label>
+  
+    <button type="submit" [disabled]="submitting">
+      {{ submitting ? 'Submitting…' : 'Subscribe' }}
+    </button>
+  </form>
+</div>
