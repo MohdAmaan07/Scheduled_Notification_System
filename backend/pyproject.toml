@@ -30,5 +30,18 @@ dependencies = [
     "tinyhtml5==2.0.0",
     "weasyprint==65.1",
     "webencodings==0.5.1",
-    "zopfli==0.2.3.post1"
+    "zopfli==0.2.3.post1",
+    "amqp==5.3.1",
+    "billiard==4.2.1",
+    "celery==5.5.3",
+    "click==8.2.1",
+    "click-didyoumean==0.3.1",
+    "click-plugins==1.1.1",
+    "click-repl==0.3.0",
+    "kombu==5.5.4",
+    "prompt-toolkit==3.0.51",
+    "redis==6.2.0",
+    "tzdata==2025.2",
+    "vine==5.1.0",
+    "wcwidth==0.2.13"
 ]
