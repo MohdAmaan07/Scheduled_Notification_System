@@ -4,14 +4,12 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-report-history',
   standalone: true,
   imports: [
     CommonModule,      
-    HttpClientModule   
   ],
   templateUrl: './report-history.component.html',
   styleUrls: ['./report-history.component.scss']
